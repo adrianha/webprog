@@ -1,0 +1,64 @@
+*{
+	line-height: 1.3em;
+	font-family: sans-serif;
+	margin : 0;
+}
+
+body{
+	padding-top: 50px;
+}
+
+#body{
+	background-color: orange;
+}
+
+.navForm{
+	width: 30%;
+}
+
+#navHeader{
+	background-color: #7309AA;
+	border: none;
+	font-size: 14pt;
+}
+
+nav a{
+	color: white !important;
+}
+
+nav a:hover{
+	color: orange !important;
+}
+
+#wrapper{
+	padding-top: 20px;
+	//color: white;
+	//background-color: #FFC300;
+	color : orange;
+	background-color: white;
+	min-height: 700px;
+}
+
+#footer{
+	height: 40px;
+	background-color: #7309AA;
+	text-align: center;
+	color: white;
+	padding-top: 10px;
+}
+
+#dropdown2 a{
+	background-color : transparent !important;
+}
+
+#dropdown2 a:hover{
+	color: orange !important;
+}
+
+.rightt{
+	text-align: right;
+}
+
+.leftt{
+	text-align: left;
+}
