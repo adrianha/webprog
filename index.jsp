@@ -121,7 +121,7 @@
         <%
           String pg=request.getParameter("p");
               if( pg!= null && ! "".equals(pg)){
-                      String webPath = "/WEB-INF/view/" + pg + ".jsp";
+                      String webPath = pg + ".jsp";
                       String realPath = request.getRealPath(webPath);
                       File f=new File(realPath);
                       if(webPath.equals("index.jsp")){
@@ -135,7 +135,7 @@
         <%
                       }else{
         %>
-                      	<jsp:include page="/WEB-INF/view/error.jsp" />
+                      	<jsp:include page="error.jsp" />
 		<%                      
                       }
               }
