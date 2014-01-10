@@ -81,7 +81,7 @@
 			</li>
 			<li>
 				<div class="thread">
-					lounge thread 2
+					lounge thread 2 s
 				</div>
 			</li>
 			<li>

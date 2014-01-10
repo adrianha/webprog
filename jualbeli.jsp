@@ -1,5 +1,5 @@
 <%@ include file="header.jsp" %>
-<h1>Forum</h1>
+<h1>Jual Beli</h1>
 <hr />
 
 <div class="container categoryHolder img-rounded">

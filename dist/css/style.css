@@ -16,6 +16,12 @@ body{
 	width: 30%;
 }
 
+/*.search{
+	max-width: 500px;
+	margin: 0 auto;
+	text-align: center;
+}*/
+
 #navHeader{
 	background-color: #7309AA;
 	border: none;
@@ -30,13 +36,16 @@ nav a:hover{
 	color: orange !important;
 }
 
+.space {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
 #wrapper{
 	padding-top: 20px;
-	//color: white;
-	//background-color: #FFC300;
 	color : orange;
-	background-color: white;
 	min-height: 700px;
+	background-image: url('../../assets/images/geometry.png');
 }
 
 #footer{
@@ -62,3 +71,94 @@ nav a:hover{
 .leftt{
 	text-align: left;
 }
+
+.centerr{
+	text-align: center;
+}
+
+.hotIndex li {
+	margin-bottom: 10px;
+	font-size: 14pt;
+}
+
+.hotIndex li a{
+	text-decoration: none;
+	color: #7309AA;
+}
+
+.hotIndex li a:hover{
+	text-decoration: underline;
+}
+
+.hotIndexHolder {
+	background-color: rgba(0,0,0,0.2);
+	border-radius: 5px;
+}
+
+.hotIndexHolder h2 {
+	color: white;
+}
+
+.categoryHolder{
+    background-color:#CCCCCC;
+    padding-bottom:15px;
+    color:black;
+    margin-bottom:30px;
+    box-shadow:5px 5px #666666;
+}
+
+.categoryHolder div a{
+    text-decoration:none !important;
+}
+
+.categoryHolder a:hover{
+    text-decoration:underline;
+}
+
+.headerCategory{
+    color: #7309AA;
+    margin-bottom:15px;
+    font-weight:bold;
+}
+
+.moderatorHolder{
+    margin-top:40px;
+    color:#138900;
+}
+
+.subCategoryHolder a{
+    color:black;
+}
+
+.subCategoryHolder a:hover{
+    font-weight:bolder;
+}
+
+/* search di index */
+#search{
+	margin-right: 15%;
+	margin-left: 15%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	padding-left: 15px;
+	padding-top: 15px;
+	padding-right: 15px;
+	background-color: rgba(102, 163, 250, 0.1);
+	display: inline-block;
+	width: 70%;
+	float:left;
+
+}
+#search>form>div:first-child
+{
+	width:80%;
+	float:left;
+}
+
+#search>form>div:last-child
+{
+	margin-left: 5%;
+	width:15%;
+	float: left;
+}
+/* search di index */
