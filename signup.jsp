@@ -1,4 +1,4 @@
-
+<%@ include file="header.jsp" %>
 <h1>Registration</h1>
 <hr />
 <form method="post"/>
@@ -72,3 +72,4 @@
 </form>
 </fieldset>
 </legend>
+<%@ include file="footer.jsp" %>
