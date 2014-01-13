@@ -46,7 +46,8 @@
               <li><a href="forum.jsp">Forum</a></li>
               <li><a href="jualbeli.jsp">Jual Beli</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right rightt">
+			<%if(session.getAttribute("user_name") == null){%>
+            <ul class="nav navbar-nav navbar-right right">
               <li id="dropdown2" class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign In <b class="caret"></b></a>
                 <ul class="dropdown-menu" style="width:250px;">
@@ -64,8 +65,16 @@
                   </form>
                 </ul>
               </li>
-              <li><a href="#">Sign Up</a></li>
+              <li><a href="signup.jsp">Sign Up</a></li>
             </ul>
+			<%}
+			else{%>
+			<ul class="nav navbar-nav navbar-right right">
+			<li><a href="#">Welcome, <%=session.getAttribute("user_name")%></a></li>
+			<li><a href="process/do_signout.jsp">Sign out</a></li>
+			</ul>
+			<%}%>
+			</ul>
           </div><!-- /.navbar-collapse -->
         </div>
       </nav>
