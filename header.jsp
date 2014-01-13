@@ -50,7 +50,7 @@
               <li id="dropdown2" class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign In <b class="caret"></b></a>
                 <ul class="dropdown-menu" style="width:250px;">
-                  <form class="navbar-form" method="post">
+                  <form class="navbar-form" method="post" action="process/do_signin.jsp">
                     <div class="form-group">
                       <input type="text" name="txtUser" id="txtUser" class="form-control" placeholder="Username">
                     </div>
@@ -60,7 +60,7 @@
                     <div class="container">
                       &nbsp;
                     </div>
-                    <button type="submit" class="btn btn-info">Sign In</button>
+                    <button type="submit" class="btn btn-info">Sign In</button>&nbsp;&nbsp;<input type="checkbox" name="rememberMe" /> Remember Me ?
                   </form>
                 </ul>
               </li>

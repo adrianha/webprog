@@ -1,3 +1,7 @@
+<%@ include file="header.jsp" %>
+<%@ include file = "process/connect1.jsp" %>
+<%@ include file = "process/connect2.jsp" %>
+<%@ include file = "process/connect3.jsp" %>
 <h2>
 <% String cg=request.getParameter("category");
    out.print(cg);%>
@@ -28,3 +32,4 @@ border-radius: 15px;"><tr><th style="text-align:center" width="750px">Thread</th
 </tr>
 
 </table>
+<%@ include file="footer.jsp" %>
