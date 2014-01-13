@@ -1,4 +1,6 @@
 <%@ include file="header.jsp" %>
+<%@ include file = "process/connect1.jsp" %>
+
 <style type="text/css">
 #ProfilePage
 {
@@ -76,39 +78,45 @@ border: 1px solid orange;
 border: 1px solid purple;
 }
 </style>
-
+<%
+	String userId = (String)session.getAttribute("user_id");
+	String query = "SELECT * FROM MSUser where UserID = "+userId;
+	ResultSet rs = st1.executeQuery(query);
+%>
+<%while(rs.next()){%>
 <div id="ProfilePage">
     <div id="LeftCol">
         <div id="Photo"></div>
         <div id="ProfileOptions">
-        Nick Name
+        <%=rs.getString(6)%>
         </div>
     </div>
 
     <div id="Info">
         <p>
             <strong>Full Name</strong>
-            <span>Sirjon</span>
+            <span><%=rs.getString(5)%></span>
         </p>
         <p>
             <strong>Birth Date</strong>
-            <span>Sirjon</span>
+            <span><%=rs.getString(7)%></span>
         </p>
         <p>
             <strong>Birth Place</strong>
-            <span>Sirjon</span>
+            <span><%=rs.getString(8)%></span>
         </p>
         <p>
             <strong>Email</strong>
-            <span>Sirjon</span>
+            <span><%=rs.getString(4)%></span>
         </p>
-        <p>
+        <!--<p>
             <strong>Name:</strong>
             <span>Sirjon</span>
-        </p>
+        </p>-->
     </div>
 
     <!-- Needed because other elements inside ProfilePage have floats -->
     <div style="clear:both"></div>
 </div>
+<%}%>
 <%@ include file="footer.jsp" %>

@@ -1,5 +1,5 @@
 <%@ include file = "connect1.jsp" %>
-<%
+
 	int count_cookie = 0;
 	Cookie[] my_cookies = request.getCookies();
 		if(my_cookies != null){
