@@ -1,52 +1,114 @@
 <%@ include file="header.jsp" %>
-<%
-		String errMsg = request.getParameter("err");
-		if(errMsg==null)
-		  errMsg="";
-		%>
-		<div id="errMsg" style="color:red;"><b><%=errMsg%></b></div>
-	<div class="container centerr">
-		<center>
-			<img class="img-responsive" src="assets/images/logo_2.png" width="300px" height="300px" />
-		</center>
-		<p style="font-size:24pt;" class="lead">
-			<strong>Welcome to Nimbrung</strong>
-		</p>
-	</div>
-	<hr />
-	<div id="search">
-		<form method="get" action="search.jsp">
-			<div class="form-group">
-                <input type="text" name="txtSearch" id="txtSearch" class="form-control"placeholder="What do you want?">
-            </div>
-            <div>
-	            <button type="submit" class="btn btn-info">Search</button>
-            </div>
-		</form>
-	</div>
-	<div class="space">&nbsp;</div>
-	<div class="container centerr">
-		<div class="col-md-5 col-md-push-1 hotIndexHolder" style="margin-right:25px;">
-			<h2>Top Threads</h2>
-			<br />
-			<ul class="leftt hotIndex" style="list-style:none;">
-				<li><a href="#"><span class="glyphicon glyphicon-eye-open"></span> Thread 1</a></li>
-				<li><a href="#"><span class="glyphicon glyphicon-eye-open"></span> Thread 2</a></li>
-				<li><a href="#"><span class="glyphicon glyphicon-eye-open"></span> Thread 3</a></li>
-				<li><a href="#"><span class="glyphicon glyphicon-eye-open"></span> Thread 4</a></li>
-				<li><a href="#"><span class="glyphicon glyphicon-eye-open"></span> Thread 5</a></li>
-			</ul>
-		</div>
-		<div class="col-md-5 col-md-push-1 hotIndexHolder">
-			<h2>Top Sales</h2>
-			<br />
-			<ul class="leftt hotIndex" style="list-style:none;">
-				<li><a href="#"><span class="glyphicon glyphicon-usd"></span> FJB 1</a></li>
-				<li><a href="#"><span class="glyphicon glyphicon-usd"></span> FJB 2</a></li>
-				<li><a href="#"><span class="glyphicon glyphicon-usd"></span> FJB 3</a></li>
-				<li><a href="#"><span class="glyphicon glyphicon-usd"></span> FJB 4</a></li>
-				<li><a href="#"><span class="glyphicon glyphicon-usd"></span> FJB 5</a></li>
-			</ul>
-		</div>
-	</div>
+<style type="text/css">
+#ProfilePage
+{
+    /* Move it off the top of the page, then centre it horizontally */
+    margin: 50px auto;
+    width: 635px;
+
+/* For visibility. Delete me */
+border: 1px solid red;
+}
+
+#LeftCol
+{
+    /* Move it to the left */
+    float: left;
+
+    width: 200px;
+    text-align: center;
+
+    /* Move it away from the content */
+    margin-right: 20px;
+
+/* For visibility. Delete me */
+border: 1px solid brown;
+}
+
+#Photo
+{
+    /* Width and height of photo container */
+    width: 200px;
+    height: 200px;
+
+/* For visibility. Delete me */
+border: 1px solid green;
+}
+
+#PhotoOptions
+{
+    text-align: center;
+    width: 200px;
+
+/* For visibility. Delete me */
+border: 1px solid brown;
+}
+
+#Info
+{
+    width: 400px;
+    text-align: center;
+
+    /* Move it to the right */
+    float: right;
+
+/* For visibility. Delete me */
+border: 1px solid blue;
+}
+
+#Info strong
+{
+    /* Give it a width */
+    display: inline-block;
+    width: 100px;
+
+/* For visibility. Delete me */
+border: 1px solid orange;
+}
+
+#Info span
+{
+    /* Give it a width */
+    display: inline-block;
+    width: 250px;
+
+/* For visibility. Delete me */
+border: 1px solid purple;
+}
+</style>
+
+<div id="ProfilePage">
+    <div id="LeftCol">
+        <div id="Photo"></div>
+        <div id="ProfileOptions">
+        Nick Name
+        </div>
+    </div>
+
+    <div id="Info">
+        <p>
+            <strong>Full Name</strong>
+            <span>Sirjon</span>
+        </p>
+        <p>
+            <strong>Birth Date</strong>
+            <span>Sirjon</span>
+        </p>
+        <p>
+            <strong>Birth Place</strong>
+            <span>Sirjon</span>
+        </p>
+        <p>
+            <strong>Email</strong>
+            <span>Sirjon</span>
+        </p>
+        <p>
+            <strong>Name:</strong>
+            <span>Sirjon</span>
+        </p>
+    </div>
+
+    <!-- Needed because other elements inside ProfilePage have floats -->
+    <div style="clear:both"></div>
+</div>
 <%@ include file="footer.jsp" %>
