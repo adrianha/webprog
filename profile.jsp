@@ -77,6 +77,10 @@ border: 1px solid orange;
 /* For visibility. Delete me */
 border: 1px solid purple;
 }
+img{
+      width:196px;
+      height:198px;
+    }
 </style>
 <%
 	String userId = (String)session.getAttribute("user_id");
@@ -86,7 +90,9 @@ border: 1px solid purple;
 <%while(rs.next()){%>
 <div id="ProfilePage">
     <div id="LeftCol">
-        <div id="Photo"></div>
+        <div id="Photo">
+		<img src="assets/user_images/<%= rs.getString("ProfilePict") %>"/>
+		</div>
         <div id="ProfileOptions">
         <%=rs.getString(6)%>
         </div>
