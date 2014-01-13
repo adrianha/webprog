@@ -1,4 +1,10 @@
 <%@ include file="header.jsp" %>
+<%
+		String errMsg = request.getParameter("err");
+		if(errMsg==null)
+		  errMsg="";
+		%>
+		<div id="errMsg" style="color:red;"><b><%=errMsg%></b></div>
 	<div class="container centerr">
 		<center>
 			<img class="img-responsive" src="assets/images/logo_2.png" width="300px" height="300px" />
