@@ -8,9 +8,17 @@
 %>
 
 <%@ include file="header.jsp" %>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+  </script>
 <h1>Registration</h1>
 <hr />
-<form method="post"/>
+<form method="post" action="process/dosignup.jsp"/>
 <legend>
 <fieldset><h3><b>Sign up Form</b></h3>
 <table border="0">
@@ -40,37 +48,24 @@
 	</tr>
 	<tr>
 		<td><label>Gender</label></td><td>:</td>
-		<td><input type="radio" name="male" value="Male">Male <input type="radio" name="male" value="Female">Female</td>
+		<td><input type="radio" name="gender" value="Male">Male <input type="radio" name="gender" value="Female">Female</td>
 	</tr>
 	<tr>
 		<td><label>Birthdate</label></td><td>:</td>
-		<td>
-			<select>
-				<option value="none">Month:</option>
-				<option value="1">Jan</option>
-				<option value="2">Feb</option>
-				<option value="3">Mar</option>
-				<option value="4">Apr</option>
-				<option value="5">May</option>
-				<option value="6">Jun</option>
-				<option value="7">Jul</option>
-				<option value="8">Aug</option>
-				<option value="9">Sep</option>
-				<option value="10">Oct</option>
-				<option value="11">Nov</option>
-				<option value="12">Dec</option>
-			</select>
-			<select>
-				<option value="none">Day:</option>
-			</select>
-			<select>
-				<option value="none">Year:</option>
-			</select>
-		</td>
+		<td><input type="text" id="datepicker"></td>
 	</tr>
 	<tr>
 		<td><label>Birthplace</label></td><td>:</td>
 		<td><input type="text" name="birthplace"></td>
+	</tr>
+	<tr>
+		<td colspan='2' style='color:red;' align='center'>
+		<%
+			String error= request.getParameter("msg");
+			if(error!=null)
+			out.print(error);
+		%>
+		</td>
 	</tr>
 	<tr>
 		<td colspan="3" align="center"/>
