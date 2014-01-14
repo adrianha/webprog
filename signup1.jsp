@@ -1,12 +1,3 @@
-<%@ page contentType="text/html; charset=utf-8" language="java" import="java.util.*" errorPage="" %>
-<%
-	// jika user sudah login akan redirect ke home
-	if(session.getAttribute("username")!=null)
-	{
-		response.sendRedirect("index.jsp");
-	}
-%>
-
 <%@ include file="header.jsp" %>
 <h1>Registration</h1>
 <hr />
