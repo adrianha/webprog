@@ -2,10 +2,33 @@
 <%@ include file = "process/connect1.jsp" %>
 <%@ include file = "process/connect2.jsp" %>
 <%@ include file = "process/connect3.jsp" %>
-<h2>
 <% String cg=request.getParameter("category");
-   out.print(cg);%>
+   String query="select ModeratorName from MsModerator where ModeratorID in("+
+   "select ModeratorID from ((TrForumModerator right join MsForum "+
+   "on TrForumModerator.ForumID=MsForum.ForumID)"+
+   "left join MsSubForum on MsForum.ForumID=MsSubForum.ForumID)"+
+   "where SubForumID="+cg+")";
+   ResultSet rs = st1.executeQuery(query);
+   String momod="";
+   while(rs.next())
+   {
+      momod += rs.getString(1);
+   }
+   momod.substring(0,momod.length()-2);
+   rs.close();
+   con.close();
+   rs = st2.executeQuery("select SubForumName from MsSubForum where SubForumID="+cg);
+   rs.next();
+%>
+   <h2>
+   <%=rs.getString("SubForumName")%>
    </h2>
+   <div style="text-align:right;padding-right:50px; width:300px;">Moderator:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <h5><%=momod%>dsjafklhalsdkhfklasdhlkacnhdcal;scnhsdlkcabsdkljbnaskldhfalksdnckasdn</h5>
+   </div>
+   <%
+   con.close();
+   %>
    <h4>
    <table style="background-image:url(../../assets/images/bg.png);-moz-border-radius: 15px;
 border-radius: 15px;"><tr><th style="text-align:center" width="750px">Thread</th><th width="350px">Last Post</th></tr></table></h4>
