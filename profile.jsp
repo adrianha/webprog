@@ -5,9 +5,9 @@
 #ProfilePage
 {
     /* Move it off the top of the page, then centre it horizontally */
-    margin: 50px auto;
-    width: 635px;
-
+    margin : 50px auto;
+    width : 635px;
+	height : 1000px;
 /* For visibility. Delete me */
 border: 1px solid red;
 }
@@ -48,7 +48,8 @@ border: 1px solid brown;
 
 #Info
 {
-    width: 400px;
+    width : 400px;
+	height : 1000px;
     text-align: center;
 
     /* Move it to the right */
@@ -73,19 +74,27 @@ border: 1px solid orange;
     /* Give it a width */
     display: inline-block;
     width: 250px;
-
 /* For visibility. Delete me */
 border: 1px solid purple;
 }
-img{
-      width:196px;
-      height:198px;
-    }
+
+
+img
+{
+width:196px;
+height:198px;
+}
+	
+#iframe
+{
+	width: 100%;
+	height: 100%;
+}
 </style>
 
 <%
 	String userId = (String)session.getAttribute("user_id");
-	String query = "SELECT * FROM MSUser where UserID = "+userId;
+	String query = "SELECT * from MsUser where UserID = "+userId;
 	ResultSet rs = st1.executeQuery(query);
 %>
 <%while(rs.next()){%>
@@ -98,12 +107,12 @@ img{
         <%=rs.getString(6)%>
         </div>
     </div>
-    <div id="Info">
-	<ul class="nav nav-tabs" id="myTab">
+<div id="Info">
+<ul class="nav nav-tabs" id="myTab">
   <li class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
   <li><a href="#messages" data-toggle="tab">Messages</a></li>
+  <li><a href="#postlist" data-toggle="tab">Post List</a></li>
   <li><a href="#threadlist" data-toggle="tab">Thread List</a></li>
-  <li><a href="#settings" data-toggle="tab">Settings</a></li>
 </ul>
 
 <div class="tab-content">
@@ -126,10 +135,14 @@ img{
         </p>
 	</div>
   <div class="tab-pane" id="messages">
+  <iframe id="iframemessage" frameborder="0" scrolling="no" id="iframe" onload='javascript:resizeIframe(this);' >
+  </div>
+  <div class="tab-pane" id="postlist">
+  <iframe id="iframepostlist" frameborder="0" scrolling="no" id="iframe" onload='javascript:resizeIframe(this);' >
+  </iframe>
   </div>
     <div class="tab-pane" id="threadlist">
-  </div>
-  <div class="tab-pane" id="settings">
+  <iframe id="iframepostlist" frameborder="0" scrolling="no" id="iframe" onload='javascript:resizeIframe(this);' >
   </div>
 </div>
 </div>
@@ -140,7 +153,16 @@ img{
 <%}%>
 <script>
   $(function () {
-    $('#myTab a:last').tab('show')
+    $('#myTab a:first').tab('show');
+	console.log("asd");
+  $('#myTab a[href="#postlist"]').on('click',function (e)
+  {
+  document.getElementById('iframepostlist').src ="glsc.jsp";
   })
+  }
+  )
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+  }
 </script>
 <%@ include file="footer.jsp" %>

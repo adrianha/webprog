@@ -1,1 +1,1 @@
-<div id="summernote"></div>
+<div id="summernote">summernote</div>

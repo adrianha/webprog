@@ -4,10 +4,6 @@
   <head>
     <title>Nimbrung</title>
     
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <!--<script src="dist/js/jquery.js"></script>-->
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <!--<script src="dist/js/bootstrap.min.js"></script>-->
 	
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -33,6 +29,10 @@
     <![endif]-->
   </head>
   <body>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="dist/js/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="dist/js/bootstrap.min.js"></script>
     <div id="body">
       <nav id="navHeader" class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
