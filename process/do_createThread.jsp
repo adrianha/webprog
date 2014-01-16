@@ -13,7 +13,7 @@ if(post.equals("")){
 else{
 post = post.substring(3,post.length()-6);
 st1.executeUpdate("insert into MsThread(SubForumID,ThreadSubject,Thread,ViewCount,UserID,CreatedDate,RepliesCount,LastPost,LastPostDate)" +
-" values('"+forum+"','"+title+"','"+post+"',0,"+session.getAttribute("user_id")+",Now(),0,"+session.getAttribute("user_id")+",Now())");
+" values('"+forum+"','"+title+"','"+post+"',0,"+session.getAttribute("user_id")+",Now(),0,'"+session.getAttribute("user_name")+"',Now())");
 con.close();
 response.sendRedirect("../contentthread.jsp?category="+forum);
 }
