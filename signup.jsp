@@ -17,6 +17,11 @@
 		//});
   //});-->
   </script>
+  <style type="text/css">
+  input{
+  margin-left: 10px;
+  }
+  </style>
 <h1>Registration</h1>
 <hr />
 <form method="post" action="process/dosignup.jsp"/>
@@ -49,11 +54,11 @@
 	</tr>
 	<tr>
 		<td><label>Gender</label></td><td>:</td>
-		<td><input type="radio" name="gender" value="Male">Male <input type="radio" name="gender" value="Female">Female</td>
+		<td>&nbsp;&nbsp;&nbsp;<input type="radio" name="gender" value="Male">Male <input type="radio" name="gender" value="Female">Female</td>
 	</tr>
 	<tr>
 		<td><label>Birthdate</label></td><td>:</td>
-		<td><input type="date" id="datepicker"></td>
+		<td><input type="date" id="datepicker" name="bdate"></td>
 	</tr>
 	<tr>
 		<td><label>Birthplace</label></td><td>:</td>

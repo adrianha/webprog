@@ -1,7 +1,5 @@
-<%@page import="java.sql.*"%>
+<%@page import="java.sql.*,java.io.*,java.util.Date,javax.servlet.*,java.text.*"%>
 <%@include file ="connect1.jsp"%>
-<%@ page import="java.io.*,java.util.*" %>
-<%@ page import="javax.servlet.*,java.text.*" %>
 
 <%
 	String user = request.getParameter("usrusrName");
@@ -13,7 +11,7 @@
 	String gender = request.getParameter("gender");
 	String bday = request.getParameter("bdate");
 	String birthplace = request.getParameter("birthplace");
-	String pattern = "[a-zA-Z]*"
+	String pattern = "[a-zA-Z]*";
 	Date tgl = new Date();
 	DateFormat df = new SimpleDateFormat("mm-dd-yyyy");
 	String formattedDate = df.format(tgl);
@@ -55,17 +53,17 @@
 		response.sendRedirect("../signup.jsp?msg=Name length must higher than 5 characters");
 		return;
 	}
-	else if (!name.contains(" ")){
+	/*else if (!name.contains(" ")){
 		response.sendRedirect("../signup.jsp?msg=Name must contain your family name");
 		return;
-	}
+	}*/
 	else if(name.charAt(0)==' '){
 		response.sendRedirect("../signup.jsp?msg=Incorrect name format");
 		return;
+	}
 	else if(!name.matches(pattern))
 	{
 		response.sendRedirect("../signup.jsp?msg=Incorrect name format");
-	}
 	}
 	//email
 	if (email.equals("") || email==null){
@@ -123,7 +121,7 @@
 		return;
 	}
 	
-	String query = "insert into msuser (Username,Password,FullName,Nickname,Email,Gender,Birthday,Birthplace) values ('"+user+"','"+pass+"','"+name+"','"+nick+"','"+email+"', '"+gender+"', '"+bday+"', '"+birthplace+"')";
+	String query = "insert into msuser (Username,Password,FullName,Nickname,Email,Gender,BirthDate,Birthplace) values ('"+user+"','"+pass+"','"+name+"','"+nick+"','"+email+"', '"+gender+"', '"+bday+"', '"+birthplace+"')";
 	st1.executeUpdate(query);
 	con.close();
 	session.setAttribute("username", user);
