@@ -1,5 +1,7 @@
 <%@page import="java.sql.*"%>
 <%@include file ="connect1.jsp"%>
+<%@ page import="java.io.*,java.util.*" %>
+<%@ page import="javax.servlet.*,java.text.*" %>
 
 <%
 	String user = request.getParameter("usrusrName");
@@ -11,8 +13,10 @@
 	String gender = request.getParameter("gender");
 	String bday = request.getParameter("bdate");
 	String birthplace = request.getParameter("birthplace");
-	boolean isNumber=false;
-	
+	String pattern = "[a-zA-Z]*"
+	Date tgl = new Date();
+	DateFormat df = new SimpleDateFormat("mm-dd-yyyy");
+	String formattedDate = df.format(tgl);
 	//username
 	if (user.equals("") || user==null) {
 		response.sendRedirect("../signup.jsp?msg=Username must be filled");
@@ -58,8 +62,11 @@
 	else if(name.charAt(0)==' '){
 		response.sendRedirect("../signup.jsp?msg=Incorrect name format");
 		return;
+	else if(!name.matches(pattern))
+	{
+		response.sendRedirect("../signup.jsp?msg=Incorrect name format");
 	}
-	
+	}
 	//email
 	if (email.equals("") || email==null){
 		response.sendRedirect("../signup.jsp?msg=Email must be filled");
@@ -74,7 +81,7 @@
 			response.sendRedirect("../signup.jsp?msg=Wrong email format 2");
 			return;
 		}
-		else if(email.charAt(0)=='0' || email.charAt(0)=='.'){
+		else if(email.charAt(0)=='.' || email.charAt(0)=='.'){
 			response.sendRedirect("../signup.jsp?msg=Wrong email format 3");
 			return;
 		}
@@ -101,15 +108,25 @@
 		response.sendRedirect("../signup.jsp?msg=Choose your birthday");
 		return;
 	}
+	else if(bday.equals(formattedDate))
+	{
+		response.sendRedirect("../signup.jsp?msg=Birthday incorrect");
+	}
 	//birthplace
 	if(birthplace==null||birthplace.equals(""))
 	{
 		response.sendRedirect("../signup.jsp?msg=Birthplace must be filed");
+		return;
+	}else if(!birthplace.matches(pattern))
+	{
+		response.sendRedirect("../signup.jsp?msg=Incorrect birthplace");
 		return;
 	}
 	
 	String query = "insert into msuser (Username,Password,FullName,Nickname,Email,Gender,Birthday,Birthplace) values ('"+user+"','"+pass+"','"+name+"','"+nick+"','"+email+"', '"+gender+"', '"+bday+"', '"+birthplace+"')";
 	st1.executeUpdate(query);
 	con.close();
-	response.sendRedirect("../signup.jsp?msg=Registration Success");
+	session.setAttribute("username", user);
+	response.sendRedirect("../sign.jsp?msg=Sign in Success, Now you can sign up");
+	
 %>

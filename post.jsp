@@ -1,6 +1,5 @@
 <%@ include file="header.jsp" %>
 <%@ include file="process/connect1.jsp"%>
-<%@ include file="process/connect2.jsp"%>
 	<script src="ckeditor/ckeditor.js"></script>
 	<style  type="text/css">
 		

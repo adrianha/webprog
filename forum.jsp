@@ -1,7 +1,5 @@
 <%@ include file="header.jsp" %>
 <%@ include file = "process/connect1.jsp" %>
-<%@ include file = "process/connect2.jsp" %>
-<%@ include file = "process/connect3.jsp" %>
 <h1>Forum</h1>
 <hr />
 <%

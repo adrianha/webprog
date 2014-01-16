@@ -1,6 +1,5 @@
 <%@ include file="header.jsp" %>
 <%@ include file="process/connect1.jsp"%>
-<%@ include file="process/connect2.jsp"%>
 <%
    if(session.getAttribute("user_id") == null){
     response.sendRedirect("signup.jsp");
