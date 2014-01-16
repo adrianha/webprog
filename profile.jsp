@@ -94,17 +94,21 @@ height:198px;
 
 <%
 	String userId = (String)session.getAttribute("user_id");
-	String query = "SELECT * from MsUser where UserID = "+userId;
+	String query = 	"SELECT MsUser.FullName, MsUser.NickName, MsUser.Email, MsUser.BirthDate, MsUser.BirthPlace, MsUser.ProfilePict, MsModerator.ModeratorID"
+					+" FROM MsUser LEFT JOIN MsModerator ON MsUser.UserID = val(MsModerator.UserID) where MsUser.UserID = "+userId;
 	ResultSet rs = st1.executeQuery(query);
 %>
 <%while(rs.next()){%>
 <div id="ProfilePage">
     <div id="LeftCol">
         <div id="Photo">
-		<img src="assets/user_images/<%= rs.getString("ProfilePict") %>"/>
+		<img src="assets/user_images/<%= rs.getString(6) %>"/>
 		</div>
         <div id="ProfileOptions">
-        <%=rs.getString(6)%>
+        <%=rs.getString(2)%>
+		<%if(rs.getString(7) != null){
+		out.print("<label style=color:red;>[Moderator]</label>");
+		}%>
         </div>
     </div>
 <div id="Info">
@@ -119,19 +123,19 @@ height:198px;
   <div class="tab-pane active" id="profile">
         <p>
             <strong>Full Name</strong>
-            <span><%=rs.getString(5)%></span>
+            <span><%=rs.getString(1)%></span>
         </p>
         <p>
             <strong>Birth Date</strong>
-            <span><%=rs.getString(7)%></span>
+            <span><%=rs.getString(4)%></span>
         </p>
         <p>
             <strong>Birth Place</strong>
-            <span><%=rs.getString(8)%></span>
+            <span><%=rs.getString(5)%></span>
         </p>
         <p>
             <strong>Email</strong>
-            <span><%=rs.getString(4)%></span>
+            <span><%=rs.getString(3)%></span>
         </p>
 	</div>
   <div class="tab-pane" id="messages">
@@ -160,7 +164,6 @@ height:198px;
   $('#myTab a[href="#postlist"]').on('click',function ()
   {
   document.getElementById('iframepostlist').src ="post.jsp";
-  alert("masuk");
   })
   }
   )
