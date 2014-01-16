@@ -3,23 +3,29 @@
 <html>
   <head>
     <title>Nimbrung</title>
+    
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="dist/js/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="dist/js/bootstrap.min.js"></script>
+	
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="dist/js/jquery-2.0.3.min.js"></script>
+    <!--<script src="dist/js/jquery-2.0.3.min.js"></script>-->
       
     <!-- Bootstrap -->
     <link href="dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <script src="dist/js/bootstrap.min.js"></script>
     
     <!-- Font Awesome -->
-    <link href="dist/css/font-awesome.min.css" rel="stylesheet">
+    <!--<link href="dist/css/font-awesome.min.css" rel="stylesheet">-->
       
     <!-- Style -->
     <link href="dist/css/style.css" rel="stylesheet" media="screen">
       
     <!-- include summernote css/js-->
-    <link href="dist/css/summernote.css" rel="stylesheet">
-    <script type="text/javascript" src="dist/js/summernote.min.js"></script>
+    <!--<link href="dist/css/summernote.css" rel="stylesheet">
+    <script type="text/javascript" src="dist/js/summernote.min.js"></script>-->
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="../../assets/js/html5shiv.js"></script>

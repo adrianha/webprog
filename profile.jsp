@@ -46,8 +46,7 @@ border: 1px solid green;
 border: 1px solid brown;
 }
 
-//#Info
-#tabs-1
+#Info
 {
     width: 400px;
     text-align: center;
@@ -59,8 +58,7 @@ border: 1px solid brown;
 border: 1px solid blue;
 }
 
-//#Info strong
-#tabs-1 strong
+#Info strong
 {
     /* Give it a width */
     display: inline-block;
@@ -70,8 +68,7 @@ border: 1px solid blue;
 border: 1px solid orange;
 }
 
-//#Info span
-#tabs-1 span
+#Info span
 {
     /* Give it a width */
     display: inline-block;
@@ -86,7 +83,7 @@ img{
     }
 </style>
 <meta charset="utf-8">
-<script src="dist/js/jquery.js"></script>
+<!--<script src="dist/js/jquery.js"></script>-->
 <script src="dist/js/jquery-ui.js"></script>
 
 <!--<link rel="stylesheet" href="/resources/demos/style.css">-->
@@ -113,6 +110,7 @@ img{
         <%=rs.getString(6)%>
         </div>
     </div>
+    <div id="Info">
 <div id="tabs">
   <ul>
     <li><a href="#tabs-1">Profile</a></li>
@@ -120,7 +118,6 @@ img{
     <li><a href="#tabs-3">Aenean lacinia</a></li>
   </ul>
   <div id="tabs-1">
-    <!--<div id="Info">-->
         <p>
             <strong>Full Name</strong>
             <span><%=rs.getString(5)%></span>
@@ -137,8 +134,8 @@ img{
             <strong>Email</strong>
             <span><%=rs.getString(4)%></span>
         </p>
-    <!--</div>-->
   </div>
+ </div>
   <div id="tabs-2">
     <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
   </div>
