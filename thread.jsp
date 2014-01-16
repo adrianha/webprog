@@ -1,6 +1,7 @@
 <%@ include file="header.jsp" %>
 <%@ include file="process/connect1.jsp" %>
 <%@ include file="process/connect2.jsp" %>
+<%@ include file="process/connect3.jsp" %>
 <%! int i = 0; %>
 <%
 	String thr = request.getParameter("thr");
@@ -9,6 +10,11 @@
 	ResultSet rs = st1.executeQuery(query);
 	ResultSet rs2 = null;
 	String username = "";
+
+	String query3 = "update MsThread set ViewCount = ViewCount + 1 where ThreadId = " + thr;
+	st3.executeUpdate(query3);
+	con2.close();
+
 	if(session.getAttribute("user_name") != null){
 		username = (String)session.getAttribute("user_name");
 	}
@@ -17,7 +23,7 @@
 			response.sendRedirect("forum.jsp");
 		}
 		else {
-			query2 = "select * from MsPost a, MsUser b Where ThreadId = " + thr + "and a.UserID = b.UserID";
+			query2 = "select * from MsPost a, MsUser b Where ThreadId = " + thr + "and a.UserID = b.UserID order by PostID ASC";
 			rs2 = st2.executeQuery(query2);
 		}
 	}

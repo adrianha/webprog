@@ -38,7 +38,7 @@
    st2.close();
    con.close();
    %>
-  <div class="container threadListContainer">
+   <div class="container threadListContainer">
     <table cellpadding="10px" class="table table-hover table-striped threadListTable" class="centerr" width="1000px">
       <tr class="textMedium">
         <th>Thread Name</th>
@@ -62,7 +62,7 @@
         {
           String id = rs2.getString("ThreadID");
       %>
-        <tr class="textSmall" style="font-weight:bolder;">
+      <tr class="textSmall" style="font-weight:bolder;">
           <td><a href="thread.jsp?thr=<%=id%>">
             <%= rs2.getString("ThreadSubject") %>
           </a></td>
@@ -91,5 +91,4 @@
         }
       %>
     </table>
-  </div>
 <%@ include file="footer.jsp" %>
