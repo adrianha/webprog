@@ -38,7 +38,7 @@
 	</div> -->
 	<div class="space">&nbsp;</div>
 	<div class="container centerr">
-		<div class="col-md-5 col-md-push-1 hotIndexHolder" style="margin-right:25px;">
+		<div class="col-md-push-1 hotIndexHolder" style="width:50%;margin-left:25%;">
 			<h2>Top Threads</h2>
 			<br />
 			<ul class="leftt hotIndex" style="list-style:none;">
@@ -49,7 +49,7 @@
 			<%}%>
 			</ul>
 		</div>
-		<div class="col-md-5 col-md-push-1 hotIndexHolder">
+		<!--<div class="col-md-5 col-md-push-1 hotIndexHolder">
 			<h2>Top Sales</h2>
 			<br />
 			<ul class="leftt hotIndex" style="list-style:none;">
@@ -59,6 +59,6 @@
 				<li><a href="#"><span class="glyphicon glyphicon-usd"></span> FJB 4</a></li>
 				<li><a href="#"><span class="glyphicon glyphicon-usd"></span> FJB 5</a></li>
 			</ul>
-		</div>
+		</div>-->
 	</div>
 <%@ include file="footer.jsp" %>

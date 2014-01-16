@@ -50,7 +50,7 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
               <li><a href="forum.jsp">Forum</a></li>
-              <li><a href="jualbeli.jsp">Jual Beli</a></li>
+              <!--<li><a href="jualbeli.jsp">Jual Beli</a></li>-->
             </ul>
 			<%if(session.getAttribute("user_name") == null){%>
             <ul class="nav navbar-nav navbar-right right">
