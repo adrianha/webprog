@@ -142,7 +142,7 @@ height:198px;
   </iframe>
   </div>
     <div class="tab-pane" id="threadlist">
-  <iframe id="iframepostlist" frameborder="0" scrolling="no" id="iframe" onload='javascript:resizeIframe(this);' >
+  <iframe id="iframethreadlist" frameborder="0" scrolling="no" id="iframe" onload='javascript:resizeIframe(this);' >
   </div>
 </div>
 </div>
@@ -157,7 +157,8 @@ height:198px;
 	console.log("asd");
   $('#myTab a[href="#postlist"]').on('click',function (e)
   {
-  document.getElementById('iframepostlist').src ="glsc.jsp";
+  document.getElementById('iframepostlist').src ="post.jsp";
+  alert("masuk");
   })
   }
   )
