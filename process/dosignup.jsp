@@ -125,6 +125,6 @@
 	st1.executeUpdate(query);
 	con.close();
 	session.setAttribute("username", user);
-	response.sendRedirect("../sign.jsp?msg=Sign in Success, Now you can sign up");
+	response.sendRedirect("../index.jsp?err=Sign up Success, Now you can sign in");
 	
 %>
