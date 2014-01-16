@@ -24,38 +24,55 @@
    rs = st2.executeQuery("select SubForumName from MsSubForum where SubForumID="+cg);
    rs.next();
 %>
-<div style="text-align:right;padding-right:50px; width:500px; float:right;">Moderator:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   <h5><%=momod%></h5>
-</div>
-   <h2>
-   <%=rs.getString("SubForumName")%>
-   </h2>
+   <div class="container">
+      <span class="textLarge">
+        <%= "Category : " + rs.getString("SubForumName")%>
+      </span>
+      <br />
+      <span class="textMedium" style="color:purple;">
+        <%= "Moderator : " + momod%>
+      </span>
+   </div>
+   <hr />
    <%
    st2.close();
    con.close();
    %>
-   <h4>
-   <table style="background-image:url(../../assets/images/bg.png);-moz-border-radius: 15px;
-border-radius: 15px;"><tr><th style="text-align:center" width="750px">Thread</th><th width="350px">Last Post</th></tr></table></h4>
-<table class="table-hover" style="color:#000000;">
-<%
-query="select NickName,MsT.* from " +
-"(select ThreadID,UserID,ThreadSubject,LastPost,ViewCount,repliesCount from MsThread where SubForumID="+
-cg+") MsT left join MsUser on MsT.UserID=MsUser.UserID";
-rs = st3.executeQuery(query);
-while(rs.next())
-{
-%>
-
-<tr>
-    <td width="220px">Created by:</td>
-    <td rowspan="2" width="492px"><a href="thread.jsp?thr=<%=rs.getString("ThreadID")%>"><%=rs.getString("ThreadSubject")%></a></td>
-    <td width="220px">Last Post by:</td><td width="130px">Views: <%=rs.getString("ViewCount")%></td></tr>
-<tr>
-     <td>&nbsp;&nbsp;&nbsp;&nbsp;<%=rs.getString("NickName")%></td>
-     <td>&nbsp;&nbsp;&nbsp;&nbsp;<%=rs.getString("LastPost")%></td>
-     <td width="130px">Replies: <%=rs.getString("RepliesCount")%></td>
-</tr>
-<%}%>
-</table>
+  <div class="container threadListContainer">
+    <table cellpadding="10px" class="table table-hover table-striped threadListTable" class="centerr" width="1000px">
+      <tr class="textMedium">
+        <th>Thread Name</th>
+        <th>Thread Starter</th>
+        <th>Last Post By</th>
+        <th>Details</th>
+      </tr>
+      <%
+        query="select NickName,MsT.* from " +
+        "(select ThreadID,UserID,ThreadSubject,LastPost,ViewCount,repliesCount from MsThread where SubForumID="+
+        cg+") MsT left join MsUser on MsT.UserID=MsUser.UserID";
+        ResultSet rs2 = st3.executeQuery(query);
+        while(rs2.next())
+        {
+      %>
+        <tr class="textSmall" style="font-weight:bolder;">
+          <td><a href="thread.jsp?thr=<%=rs2.getString("ThreadID")%>">
+            <%= rs2.getString("ThreadSubject") %>
+          </a></td>
+          <td><%= rs2.getString("NickName") %></td>
+          <td><%= rs2.getString("LastPost") %></td>
+          <td>
+            <span>
+                Views : <%= rs2.getString("ViewCount") %>
+            </span>
+              <br />
+            <span>
+                Replies : <%= rs2.getString("repliesCount") %>
+            </span>
+          </td>
+        </tr>
+      <%
+        }
+      %>
+    </table>
+  </div>
 <%@ include file="footer.jsp" %>
