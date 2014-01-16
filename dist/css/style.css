@@ -22,6 +22,37 @@ body{
 	text-align: center;
 }*/
 
+.postHolder {
+	color: purple;
+	width: 1085px;
+	margin: 0 auto;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	height: auto;
+	padding-top: 10px;
+	padding-left: 15px;
+	border-radius: 5px;
+}
+
+.leftSidePost {
+	margin-right: 5px;
+	width: 200px;
+	float: left;
+	margin-bottom: 25px;
+}
+
+.rightSidePost {
+	float: left;
+	width: 855px;
+	border-left: solid 2px purple;
+	padding-left: 25px;
+	padding-right: 10px;
+	min-height: 110px;
+	background-color: rgba(255,102,0,0.7);
+	font-size: 14pt;
+	margin-bottom: 25px;
+}
+
 #navHeader{
 	background-color: #7309AA;
 	border: none;
