@@ -1,25 +1,55 @@
 <%@ include file="process/connect1.jsp"%>
 <%@ include file="process/connect2.jsp"%>
-	<script src="ckeditor/ckeditor.js">
-	</script>
-<style  type="text/css">
+<style>
 form
 {
 	width: 100%;
-	height: 700px;
-	border: 1px solid orange;
-}	
+	height: 800px;
+	overflow-y: scroll;
+	border: 1px solid purple;
+}
+textarea
+{
+	width: 100%;
+	height: 200px;
+}
 </style>
 <%
-  //int threadid = Integer.parseInt(request.getParameter("thr"));
-  //st1.executeUpdate("update MsThread set ViewCount = ViewCount + 1 where threadid="+threadid);
-  //String query="select NickName,ProfilePict,PostId,ThreadID,PostDate,Post from MsUser right join MsPost on MsUser.Userid=MsPost.UserID where ThreadID="+threadid;
-  //ResultSet rs = st2.executeQuery(query);
-  //out.print(query);
+   if(session.getAttribute("user_id") == null){
+    response.sendRedirect("signup.jsp");
+	return;
+	}
+	String UserIDTo = request.getParameter("UserIDTo");
 %>
-<form method="post" action="process/do_posting.jsp">
-<textarea class="ckeditor" cols="40" id="editor8" name="editor8" rows="18">
-</textarea>
+<script src="ckeditor/ckeditor.js"></script>
 
-<center><button type="submit">Post</button></center>
+<form method="post" action="process/do_createMessage.jsp">
+<input type="Hidden" value="<%=UserIDTo%>" name="UserIDTo">
+<textarea class="ckeditor" cols="80" id="editor8" name="editor8" rows="18">
+</textarea>
+<br/>
+<center>
+<button type="submit" class="cke_1 cke cke_reset cke_chrome cke_ltr cke_browser_webkit">Post</button>
+</center>
+<%if(request.getParameter("err")!=null){
+if(request.getParameter("err").equals("post")){%>
+<div style="color:red;"> * You should fill your post with something to start the thread.</div>
+<%}
+}%>
+<%
+	String userId = (String)session.getAttribute("user_id");
+	String query = "SELECT * FROM MsMessage where UserID = "+userId;
+	ResultSet rs = st1.executeQuery(query);
+	
+%>
+<div class="row" id="ProfileMessagePage">
+<%while(rs.next()){%>
+<div class="btn-info">
+<label align="left"><u><%=rs.getString(3)%></u></label>
+</br>
+<p><%=rs.getString(2)%></p>
+<label align="right"><%=rs.getString(4)%></label>
+</div>
+<%}%>
+</div>
 </form>

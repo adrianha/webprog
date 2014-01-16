@@ -85,7 +85,7 @@ width:196px;
 height:198px;
 }
 	
-#iframe
+iframe
 {
 	width: 100%;
 	height: 100%;
@@ -93,9 +93,14 @@ height:198px;
 </style>
 
 <%
-	String userId = (String)session.getAttribute("user_id");
+	String UserID = (String)session.getAttribute("user_id");
+	
+	if(request.getParameter("UserIDTo") != null){
+		UserID = request.getParameter("UserIDTo");
+	}
+	
 	String query = 	"SELECT MsUser.FullName, MsUser.NickName, MsUser.Email, MsUser.BirthDate, MsUser.BirthPlace, MsUser.ProfilePict, MsModerator.ModeratorID"
-					+" FROM MsUser LEFT JOIN MsModerator ON MsUser.UserID = val(MsModerator.UserID) where MsUser.UserID = "+userId;
+					+" FROM MsUser LEFT JOIN MsModerator ON MsUser.UserID = val(MsModerator.UserID) where MsUser.UserID = "+UserID;
 	ResultSet rs = st1.executeQuery(query);
 %>
 <%while(rs.next()){%>
@@ -167,7 +172,7 @@ height:198px;
   })
   $('#myTab a[href="#messages"]').on('click',function ()
   {
-  document.getElementById('iframemessage').src ="profilemessage.jsp";
+  document.getElementById('iframemessage').src ="profilemessage.jsp?UserIDTo=<%=UserID%>";
   })
   }
   )
