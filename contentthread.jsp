@@ -45,6 +45,13 @@
         <th>Thread Starter</th>
         <th>Last Post By</th>
         <th>Details</th>
+        <%
+          if(session.getAttribute("user_name").equals(momod)){
+        %>
+          <th>Action</th>
+        <%
+          }
+        %>
       </tr>
       <%
         query="select NickName,MsT.* from " +
@@ -53,9 +60,10 @@
         ResultSet rs2 = st3.executeQuery(query);
         while(rs2.next())
         {
+          String id = rs2.getString("ThreadID");
       %>
         <tr class="textSmall" style="font-weight:bolder;">
-          <td><a href="thread.jsp?thr=<%=rs2.getString("ThreadID")%>">
+          <td><a href="thread.jsp?thr=<%=id%>">
             <%= rs2.getString("ThreadSubject") %>
           </a></td>
           <td><%= rs2.getString("NickName") %></td>
@@ -69,6 +77,15 @@
                 Replies : <%= rs2.getString("repliesCount") %>
             </span>
           </td>
+          <%
+          if(session.getAttribute("user_name").equals(momod)){
+          %>
+            <td>
+              <a href="process/do_deleteThread.jsp?id=<%= id %>&category=<%= cg %>"><span class="glyphicon glyphicon-remove"></span></a>
+            </td>
+          <%
+            }
+          %>
         </tr>
       <%
         }
