@@ -79,7 +79,6 @@
 			application.setAttribute("user_online",user_online);
 			session.setAttribute("user_name",username);
 			session.setAttribute("user_id",rs.getString(1));
-			session.setAttribute("user_role",rs.getString(7));
 			response.sendRedirect("../index.jsp");
 		}
 		else {

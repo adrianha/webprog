@@ -1,12 +1,15 @@
 <%@ include file="header.jsp" %>
 <%@ include file="process/connect1.jsp"%>
+<%@ include file="process/connect2.jsp"%>
 	<script src="ckeditor/ckeditor.js"></script>
 	<style  type="text/css">
 		
 	</style>
 <%
-  String query="select NickName,ProfilePict,PostId,ThreadID,PostDate,Post from MsUser right join MsPost on MsUser.Userid=MsPost.UserID where ThreadID="+request.getParameter("thr");
-  ResultSet rs = st1.executeQuery(query);
+  int threadid = Integer.parseInt(request.getParameter("thr"));
+  st1.executeUpdate("update MsThread set ViewCount = ViewCount + 1 where threadid="+threadid);
+  String query="select NickName,ProfilePict,PostId,ThreadID,PostDate,Post from MsUser right join MsPost on MsUser.Userid=MsPost.UserID where ThreadID="+threadid;
+  ResultSet rs = st2.executeQuery(query);
   out.print(query);
 %>
 <form method="post" action="process/do_posting.jsp">
