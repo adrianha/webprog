@@ -7,6 +7,7 @@
 <%
   String query="select NickName,ProfilePict,PostId,ThreadID,PostDate,Post from MsUser right join MsPost on MsUser.Userid=MsPost.UserID where ThreadID="+request.getParameter("thr");
   ResultSet rs = st1.executeQuery(query);
+  out.print(query);
 %>
 <form method="post" action="process/do_posting.jsp">
 <textarea style="padding-top:100px;" class="ckeditor" cols="80" id="editor8" name="editor8" rows="18">
