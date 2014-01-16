@@ -135,14 +135,16 @@ height:198px;
         </p>
 	</div>
   <div class="tab-pane" id="messages">
-  <iframe id="iframemessage" frameborder="0" scrolling="no" id="iframe" onload='javascript:resizeIframe(this);' >
-  </div>
-  <div class="tab-pane" id="postlist">
-  <iframe id="iframepostlist" frameborder="0" scrolling="no" id="iframe" onload='javascript:resizeIframe(this);' >
+  <iframe id="iframemessage" frameborder="0" scrolling="no" onload='javascript:resizeIframe(this);' >
   </iframe>
   </div>
-    <div class="tab-pane" id="threadlist">
-  <iframe id="iframethreadlist" frameborder="0" scrolling="no" id="iframe" onload='javascript:resizeIframe(this);' >
+  <div class="tab-pane" id="postlist">
+  <iframe id="iframepostlist" frameborder="0" scrolling="no" onload='javascript:resizeIframe(this);' >
+  </iframe>
+  </div>
+  <div class="tab-pane" id="threadlist">
+  <iframe id="iframethreadlist" frameborder="0" scrolling="no" onload='javascript:resizeIframe(this);' >
+  </iframe>
   </div>
 </div>
 </div>
@@ -155,7 +157,7 @@ height:198px;
   $(function () {
     $('#myTab a:first').tab('show');
 	console.log("asd");
-  $('#myTab a[href="#postlist"]').on('click',function (e)
+  $('#myTab a[href="#postlist"]').on('click',function ()
   {
   document.getElementById('iframepostlist').src ="post.jsp";
   alert("masuk");
