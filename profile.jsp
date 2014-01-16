@@ -82,18 +82,6 @@ img{
       height:198px;
     }
 </style>
-<!--<meta charset="utf-8">-->
-<!--<script src="dist/js/jquery.js"></script>-->
-<script src="dist/js/jquery-ui.js"></script>
-
-<!--<link rel="stylesheet" href="/resources/demos/style.css">-->
-<script type="text/javascript">
-	$(function() {
-		$( "#tabs" ).tabs();
-	});
-</script>
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
-
 
 <%
 	String userId = (String)session.getAttribute("user_id");
@@ -111,13 +99,15 @@ img{
         </div>
     </div>
     <div id="Info">
-<div id="tabs">
-  <ul>
-    <li><a href="#tabs-1">Profile</a></li>
-    <li><a href="#tabs-2">b</a></li>
-    <li><a href="#tabs-3">a</a></li>
-  </ul>
-  <div id="tabs-1">
+	<ul class="nav nav-tabs" id="myTab">
+  <li class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
+  <li><a href="#messages" data-toggle="tab">Messages</a></li>
+  <li><a href="#threadlist" data-toggle="tab">Thread List</a></li>
+  <li><a href="#settings" data-toggle="tab">Settings</a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="profile">
         <p>
             <strong>Full Name</strong>
             <span><%=rs.getString(5)%></span>
@@ -134,18 +124,23 @@ img{
             <strong>Email</strong>
             <span><%=rs.getString(4)%></span>
         </p>
+	</div>
+  <div class="tab-pane" id="messages">
   </div>
- </div>
-  <div id="tabs-2">
-    <p>tab2</p>
+    <div class="tab-pane" id="threadlist">
   </div>
-  <div id="tabs-3">
-  tab 3
+  <div class="tab-pane" id="settings">
   </div>
+</div>
 </div>
 
     <!-- Needed because other elements inside ProfilePage have floats -->
     <div style="clear:both"></div>
 </div>
 <%}%>
+<script>
+  $(function () {
+    $('#myTab a:last').tab('show')
+  })
+</script>
 <%@ include file="footer.jsp" %>
