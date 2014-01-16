@@ -1,4 +1,5 @@
 <%@ include file="header.jsp" %>
+<%@ include file="process/connect1.jsp" %>
 <%
 		String errMsg = request.getParameter("err");
 		if(errMsg==null)
@@ -41,11 +42,11 @@
 			<h2>Top Threads</h2>
 			<br />
 			<ul class="leftt hotIndex" style="list-style:none;">
-				<li><a href="#"><span class="glyphicon glyphicon-eye-open"></span> Thread 1</a></li>
-				<li><a href="#"><span class="glyphicon glyphicon-eye-open"></span> Thread 2</a></li>
-				<li><a href="#"><span class="glyphicon glyphicon-eye-open"></span> Thread 3</a></li>
-				<li><a href="#"><span class="glyphicon glyphicon-eye-open"></span> Thread 4</a></li>
-				<li><a href="#"><span class="glyphicon glyphicon-eye-open"></span> Thread 5</a></li>
+			<%ResultSet rs = st1.executeQuery("select top 5 ThreadID,ThreadSubject from MsThread order by RepliesCount,ViewCount desc");
+			while(rs.next()){
+			%>
+				<li><a href="thread.jsp?thr=<%=rs.getString("ThreadID")%>"><span class="glyphicon glyphicon-eye-open"></span><%=rs.getString("ThreadSubject")%></a></li>
+			<%}%>
 			</ul>
 		</div>
 		<div class="col-md-5 col-md-push-1 hotIndexHolder">
