@@ -163,7 +163,11 @@ height:198px;
 	console.log("asd");
   $('#myTab a[href="#postlist"]').on('click',function ()
   {
-  document.getElementById('iframepostlist').src ="post.jsp";
+  document.getElementById('iframepostlist').src ="profilepost.jsp";
+  })
+  $('#myTab a[href="#messages"]').on('click',function ()
+  {
+  document.getElementById('iframemessage').src ="profilemessage.jsp";
   })
   }
   )
