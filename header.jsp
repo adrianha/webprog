@@ -1,10 +1,14 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.io.*" errorPage="" %>
+<%@ include file="process/do_checkcookie.jsp" %>
 <!DOCTYPE html>
 <html>
   <head>
     <title>Nimbrung</title>
     
-	
+	<%
+	if(count_cookie == 1 && session.getAttribute("cekCookie") == null){
+			response.sendRedirect("process/do_signin.jsp");
+		}%>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!--<script src="dist/js/jquery-2.0.3.min.js"></script>-->
