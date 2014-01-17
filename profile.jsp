@@ -170,6 +170,10 @@ iframe
   {
   document.getElementById('iframepostlist').src ="profilepost.jsp";
   })
+  $('#myTab a[href="#threadlist"]').on('click',function ()
+  {
+  document.getElementById('iframepostlist').src ="profilThread.jsp";
+  })
   $('#myTab a[href="#messages"]').on('click',function ()
   {
   document.getElementById('iframemessage').src ="profilemessage.jsp?UserIDTo=<%=UserID%>";

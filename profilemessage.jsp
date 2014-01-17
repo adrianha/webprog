@@ -38,15 +38,13 @@ if(request.getParameter("err").equals("post")){%>
 }%>
 <%
 	String userId = (String)session.getAttribute("user_id");
-	String query = "SELECT * FROM MsMessage where UserID = "+userId;
+	String query = "SELECT * FROM MsMessage where UserID = "+UserIDTo;
 	ResultSet rs = st1.executeQuery(query);
 	
 %>
 <div class="row" id="ProfileMessagePage">
 <%while(rs.next()){%>
 <div class="btn-info">
-<label align="left"><u><%=rs.getString(3)%></u></label>
-</br>
 <p><%=rs.getString(2)%></p>
 <label align="right"><%=rs.getString(4)%></label>
 </div>
