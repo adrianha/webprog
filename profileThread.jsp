@@ -19,17 +19,17 @@
 
 <%
 	String userId = (String)session.getAttribute("user_id");
-	String query = "SELECT * FROM MsPost where UserID = "+userId;
+	String query = "SELECT * FROM MsThread where UserID = "+userId+'";
 	ResultSet rs = st1.executeQuery(query);
 	
 %>
 <div class="row" id="ProfilePostPage">
 <%while(rs.next()){%>
 <div class="btn-info">
-<label align="left"><u><%=rs.getString(3)%></u></label>
+<label align="left"><u><%=rs.getString(4)%></u></label>
 </br>
 <p><%=rs.getString(4)%></p>
-<label align="right"><%=rs.getString(6)%></label>
+<label align="right"><%=rs.getString(3)%></label>
 </div>
 <%}%>
 </div>

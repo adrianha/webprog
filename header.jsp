@@ -80,7 +80,7 @@
 			<%}
 			else{%>
 			<ul class="nav navbar-nav navbar-right right">
-			<li><a href="user_profile.jsp">Welcome, <%=session.getAttribute("user_name")%></a></li>
+			<li><a href="profile.jsp">Welcome, <%=session.getAttribute("user_name")%></a></li>
 			<li><a href="createThread.jsp" style="padding:0;margin:0;"><img src="assets/images/create_thread.PNG" style="width:50px; height:50px"/></a></li>
 			<li><a href="process/do_signout.jsp">Sign out</a></li>
 			</ul>
