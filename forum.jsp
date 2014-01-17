@@ -51,7 +51,10 @@
             query3 = "select * from TrForumModerator a, MsModerator b where ForumID = " + forumId + "and a.ModeratorID = b.ModeratorID";
             rs3 = st3.executeQuery(query3);
           %>
-          <h5>Moderator : <% while(rs3.next()){out.print(rs3.getString(4));} %></h5>
+          <h5>Moderator : <% while(rs3.next()){%>
+		  <u><a href="profile.jsp?UserIDTo=<%=rs3.getString(3)%>" style="color:#138900;"><%{out.print(rs3.getString(4));} %></a></u>
+		  <%}%>
+		  </h5>
         </div>
   </div>
 <%
