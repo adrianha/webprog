@@ -1,6 +1,11 @@
 <%@ include file="process/connect1.jsp"%>
 <%@ include file="process/connect2.jsp"%>
 <style>
+.message{
+	background-color: #7309BB;
+	border: none;
+	font-size: 14pt;
+}
 form
 {
 	width: 100%;
@@ -38,15 +43,17 @@ if(request.getParameter("err").equals("post")){%>
 }%>
 <%
 	String userId = (String)session.getAttribute("user_id");
-	String query = "SELECT * FROM MsMessage where UserID = "+UserIDTo;
+	String query = "SELECT MsMessage.Message,MsUser.NickName FROM MsMessage left join MsUSer on MsUser.UserId = val(MsMessage.UserIdFrom) where MsMessage.UserID = '"+UserIDTo+"'";
 	ResultSet rs = st1.executeQuery(query);
 	
 %>
+</br>
 <div class="row" id="ProfileMessagePage">
 <%while(rs.next()){%>
-<div class="btn-info">
-<p><%=rs.getString(2)%></p>
-<label align="right"><%=rs.getString(4)%></label>
+<div class="message">
+</br>
+<p><%=rs.getString(1)%></p>
+<label align="right">from user : <%=rs.getString(2)%></label>
 </div>
 <%}%>
 </div>
