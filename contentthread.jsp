@@ -46,10 +46,12 @@
         <th>Last Post By</th>
         <th>Details</th>
         <%
-          if(session.getAttribute("user_name").equals(momod)){
+          if(session.getAttribute("user_name")!=null){
+            if(session.getAttribute("user_name").equals(momod)){
         %>
           <th>Action</th>
         <%
+            }
           }
         %>
       </tr>
@@ -78,12 +80,14 @@
             </span>
           </td>
           <%
-          if(session.getAttribute("user_name").equals(momod)){
+          if(session.getAttribute("user_name")!=null){
+            if(session.getAttribute("user_name").equals(momod)){
           %>
             <td>
               <a href="process/do_deleteThread.jsp?id=<%= id %>&category=<%= cg %>"><span class="glyphicon glyphicon-remove"></span></a>
             </td>
           <%
+              }
             }
           %>
         </tr>
