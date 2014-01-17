@@ -9,7 +9,6 @@
     width : 635px;
 	height : 1000px;
 /* For visibility. Delete me */
-border: 1px solid red;
 }
 
 #LeftCol
@@ -24,7 +23,6 @@ border: 1px solid red;
     margin-right: 20px;
 
 /* For visibility. Delete me */
-border: 1px solid brown;
 }
 
 #Photo
@@ -34,7 +32,6 @@ border: 1px solid brown;
     height: 200px;
 
 /* For visibility. Delete me */
-border: 1px solid green;
 }
 
 #PhotoOptions
@@ -43,7 +40,6 @@ border: 1px solid green;
     width: 200px;
 
 /* For visibility. Delete me */
-border: 1px solid brown;
 }
 
 #Info
@@ -56,7 +52,6 @@ border: 1px solid brown;
     float: right;
 
 /* For visibility. Delete me */
-border: 1px solid blue;
 }
 
 #Info strong
@@ -66,7 +61,6 @@ border: 1px solid blue;
     width: 100px;
 
 /* For visibility. Delete me */
-border: 1px solid orange;
 }
 
 #Info span
@@ -75,7 +69,6 @@ border: 1px solid orange;
     display: inline-block;
     width: 250px;
 /* For visibility. Delete me */
-border: 1px solid purple;
 }
 
 
