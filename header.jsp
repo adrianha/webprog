@@ -81,7 +81,7 @@
 			else{%>
 			<ul class="nav navbar-nav navbar-right right">
 			<li><a href="#">Welcome, <%=session.getAttribute("user_name")%></a></li>
-			<li><a href="createThread.jsp" style="padding:0;margin:0;"><img src="assets/images/create_thread.PNG" style="width:50%;"/></a></li>
+			<li><a href="createThread.jsp" style="padding:0;margin:0;"><img src="assets/images/create_thread.PNG" style="width:50%; height:50%"/></a></li>
 			<li><a href="process/do_signout.jsp">Sign out</a></li>
 			</ul>
 			<%}%>
